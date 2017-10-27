@@ -34,7 +34,7 @@
       <li class="nav-item">
         <a class="nav-link active" href="list.php">Tous les etudiants</a>
       </li>
-        <a class="nav-link disabled" href="#">Ajout d'un etudiant</a>
+        <a class="nav-link" href="add.php">Ajout d'un etudiant</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

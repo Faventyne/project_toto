@@ -1,0 +1,12 @@
+{
+    "name": "faventyne/projet-toto",
+    "description": "Gestion des etudiants\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D",
+    "type": "project",
+    "authors" : [
+        {"name" : "faventyne",
+        "email" : "guitchat@gmail.com"}
+    ],
+    "require": {
+        "social-links/social-links": "^1.13"
+    }
+}

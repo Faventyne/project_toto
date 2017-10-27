@@ -7,6 +7,7 @@
       <th scope="col">Prenom</th>
       <th scope="col">Email</th>
       <th scope="col">Date de naissance</th>
+      <th scope="col">Plus...</th>
     </tr>
   </thead>
  <tbody>
@@ -17,6 +18,7 @@
         <td><?php echo $results[$key]['stu_firstname'] ?></td>
         <td><?php echo $results[$key]['stu_email'] ?></td>
         <td><?php echo $results[$key]['stu_birthdate'] ?></td>
+        <td><a href="<?php echo '/student.php?id=' . $results[$key]['stu_id'] ?>" class="btn btn-info btn-small" role="button">Details</a></td>
       </tr>
   <?php endforeach; ?>
   </tbody>
