@@ -3,17 +3,17 @@
 
 <?php require_once __DIR__ .'/../inc/config.php';
 
-
     $sql='SELECT *
     FROM student
-    INNER JOIN city
+    LEFT OUTER JOIN city
     ON student.city_cit_id = city.cit_id
-    INNER JOIN session
+    LEFT OUTER JOIN  session
     ON student.session_ses_id = session.ses_id
-    INNER JOIN training
+    LEFT OUTER JOIN  training
     ON session.training_tra_id = training_tra_id
-    WHERE stu_id = '.$_GET["id"];
+    WHERE stu_id = ' .$_GET["id"];
 
+//print_r($sql);
 
 $pdoStatement = $pdo->prepare($sql);
 //$pdoStatement->bindValue(':queryname','Tasch', PDO::PARAM_STR);
