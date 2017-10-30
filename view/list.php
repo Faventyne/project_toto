@@ -39,5 +39,5 @@
   </tbody>
 </table>
 
-<a href="<?php echo 'list.php?page=' . ($offset-1) ?>" class="btn btn-info btn-sm all" role="button"> Précédent </a>
+<a href="<?php echo 'list.php?page=' . (($offset>=2) ? ($offset-1) : 1) ?>" class="btn btn-info btn-sm all" role="button"> Précédent </a>
 <a href="<?php echo 'list.php?page=' . ($offset+1) ?>" class="btn btn-info btn-sm all" role="button"> Suivant </a>
