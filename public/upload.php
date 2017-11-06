@@ -137,16 +137,30 @@ if (!empty($_POST)){
 
         $sql="SELECT stu_firstname,stu_lastname,stu_email,stu_friendliness,stu_birthdate
         FROM student";
+
+        /*First. way*/
+
         $pdoStatement=$pdo->prepare($sql);
         $pdoStatement->execute();
         $allData = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-        $currDate =
-        $handle=fopen('./resources/exports/export-'.date(Ymd).'.csv', 'w');
+        $handle=fopen('./resources/exports/export-'.date('Ymd').'.csv', 'w');
 
         foreach ($allData as $fields) {
             fputcsv($handle, $fields,';');
         }
         fclose($handle);
+
+        /*Second way*/
+        $pdoStatement=$pdo->query($sql);
+        if($pdoStatement && $pdoStatement->rowCount() > 0){
+            $handle=fopen('./resources/exports/export-'.date('Ymd').'.csv', 'w');
+            while(($row = $pdoStatement->fetch(PDO::FETCH_ASSOC)) !== false){
+                $line=implode(';', $row);
+                //PHP_EOL means make a line break
+                fwrite($handle, $line.PHP_EOL);
+            }
+            fclose($handle);
+        }
 
 
     } else {
