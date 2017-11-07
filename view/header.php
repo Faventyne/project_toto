@@ -41,6 +41,12 @@
       </li>
         <a class="nav-link" href="upload.php">Upload CSV</a>
       </li>
+      </li>
+        <a class="nav-link" href="signup.php">Inscription</a>
+      </li>
+      </li>
+        <a class="nav-link" href="signin.php">Connexion</a>
+      </li>
 
 
     </ul>
