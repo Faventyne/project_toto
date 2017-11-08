@@ -1,10 +1,15 @@
 <?php
 
+session_start();
+
 $config = array(
     'DB_HOST' => 'localhost',
     'DB_USER' => 'root',
     'DB_PASSWORD' =>'',
-    'DB_DATABASE' => 'webforce6'
+    'DB_DATABASE' => 'webforce6',
+    'MAIL_HOST' => 'smtp.gmail.com',
+    'MAIL_USERNAME' => 'guitchat',
+    'MAIL_PASSWORD' => file_get_contents(__DIR__ ."/pwd.txt")
 );
 
 //Inclusion de composer

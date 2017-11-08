@@ -10,7 +10,7 @@ if(isset($_POST['signin'])){
         $email=$_POST['email'];
         $pwd=$_POST['pwd'];
 
-        $sql = 'SELECT usr_id,usr_email,usr_password
+        $sql = 'SELECT usr_id,usr_email,usr_password,usr_role
         FROM user
         WHERE usr_email =:email';
 
@@ -20,12 +20,20 @@ if(isset($_POST['signin'])){
         $pdoStatement->execute();
         $user= $pdoStatement->fetch(PDO::FETCH_ASSOC);
 
+        $ip_address= $_SERVER['REMOTE_ADDR'];
+
         if(empty($user)){
             echo "Adresse email non valide. Veuillez vérifier votre adresse ou vous inscrire";
         }
         else{
             if($user['usr_password'] == md5($pwd.'$ùµ§toto')){
                 print_r($user);
+
+                echo "Votre adresse IP est". $ip_address;
+
+                $_SESSION['id']=$user['usr_id'];
+                $_SESSION['role']=$user['usr_role'];
+                //print_r($_SESSION);
             } else {
                 echo "Le mot de passe saisi est incorrect. Veuillez vous assurer du mot de passe";
             }

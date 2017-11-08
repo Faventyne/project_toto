@@ -41,8 +41,8 @@ if(isset($_POST['insert'])){
                 //check if passwords are similar and long enough
             if(strlen($pwd1)>=8 && $pwd1==$pwd2 /*&& preg_match($pattern,$pwd1)==1*/){
                     $key = '$ùµ§toto';
-                    $sql="INSERT INTO user(usr_email,usr_password)
-                    VALUES (:email,:pwd)";
+                    $sql="INSERT INTO user(usr_email,usr_password,usr_role)
+                    VALUES (:email,:pwd,'user')";
                     $pdoStatement=$pdo->prepare($sql);
                     $encPwd=md5($pwd1.$key);
                     $pdoStatement->bindValue(':email',$mail, PDO::PARAM_STR);
